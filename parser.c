@@ -181,7 +181,7 @@ int main(int argc, char *argv[])
     //     0x00                                // Only 1 byte payload
     // };
 
-    // **********************Custom**********************
+    // **********************Custom***********************
     // unsigned char frame[] = {
     //     0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, // Dest MAC
     //     0x11, 0x22, 0x33, 0x44, 0x55, 0x66, // Src MAC
