@@ -78,7 +78,7 @@ Read directly from CLI argument:
 
 ---
 
-## List of Commands
+## List of Commands (To be run after compiling the main file)
 
 - Hardcoded test frame
   `./parser`
