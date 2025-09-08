@@ -78,6 +78,20 @@ Read directly from CLI argument:
 
 ---
 
+## List of Commands
+
+- Hardcoded test frame
+  `./parser`
+
+- Read hex dump from file
+  `./parser frame.txt`
+
+- Provide hex bytes directly via CLI
+  `./parser 00 1A 2B 3C 4D 5E 00 0C 29 AA BB CC 08 00`
+
+- Show help message
+  `./parser -h`
+
 ## 🎯 Learning Goals
 
 - Understand Ethernet II frame structure:
