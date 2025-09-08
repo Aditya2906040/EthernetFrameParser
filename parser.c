@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 #define ETHERTYPE_IPV4 0x0800
 #define ETHERTYPE_ARP 0x0806
@@ -18,7 +19,7 @@ void getSrc(const unsigned char frame[], char *dest)
     sprintf(dest, "%02X:%02X:%02X:%02X:%02X:%02X", frame[6], frame[7], frame[8], frame[9], frame[10], frame[11]);
 }
 
-__uint16_t getEtherType(const unsigned char frame[])
+uint16_t getEtherType(const unsigned char frame[])
 {
     __uint16_t result = (frame[12] << 8) | frame[13];
     return result;
@@ -35,7 +36,7 @@ void parse_frame(const unsigned char frame[], int frame_len)
 {
 
     // printing destination MAC:
-    unsigned char *dest = malloc(18);
+    unsigned char dest[18];
     getDest(frame, dest);
     printf("Destination MAC: %s", dest);
 
@@ -53,18 +54,16 @@ void parse_frame(const unsigned char frame[], int frame_len)
     // }
     // printf("\n");
     printf("%s", getMacType(frame));
-    free(dest);
 
     // printing source MAC:
-    unsigned char *src = malloc(18);
+    unsigned char src[18];
     getSrc(frame, src);
     printf("Source MAC:      %s", src);
 
     printf("\n");
-    free(src);
 
     // Ether Type:
-    __uint16_t etherType = getEtherType(frame);
+    uint16_t etherType = getEtherType(frame);
     printf("EtherType:       0x%04X", etherType);
 
     switch (etherType)
